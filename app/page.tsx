@@ -1,101 +1,76 @@
-import Image from "next/image";
+import { Suspense } from 'react';
+import Spline from '@splinetool/react-spline/next';
+import Image from 'next/image';
+import ClickDown from '@/components/other/click-down';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className='flex flex-col min-h-screen'>
+      <div className='flex flex-col items-center justify-center h-1/2 md:h:3/4 lg:h-screen max-w-[1800px] mx-auto'>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <Spline
+            scene='https://prod.spline.design/uFAYgKO-o3vw3IjY/scene.splinecode'
+          />
+        <ClickDown />
+      </div>
+      <div id='info' className='py-12 flex flex-col items-center justify-center gap-16 min-h-screen w-full bg-bigpix'>
+        <div className='mt-6 lg:mt-12 flex items-center justify-center gap-x-12 max-w-7xl mx-6 md:mx-12 lg:mx-auto'>
+          <div className='flex flex-col lg:flex-row items-center justify-center gap-4'>
+            <div className='w-full lg:w-2/3'>
+              <h1 className='text-6xl md:text-8xl lg:text-9xl font-sans font-black text-gray-950'>Big ideas deserve a big impact.</h1>
+            </div>
+            <div className='w-full lg:w-1/3'>
+              <Image
+                src='/images/wireframe1.png'
+                alt='A sketch of a website wireframe'
+                height={720}
+                width={680}
+              />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className='max-w-7xl mx-6 md:mx-12 lg:mx-auto prose prose-bpblack xl:prose-2xl font-serif font-normal'>
+          <p>You have come up with the most amazing idea and you have poured your heart and soul into making it the best it can be. Now it needs a website that can show all that talent and promise to the rest of the world.</p>
+          <p>That's where I come in. At Big Pixel, I don't just want to take another default website and slap a logo on it. Instead, I want to take all that passion and promise that your business contains and show it in every pixel. This attention to detail also means you can dream big&hellip;</p>
+          <ul>
+            <li>Need a secure portal that customers can log into, and check their orders? <strong>No problem</strong>.</li>
+            <li>Want a blog that can be updated with new posts and images? <strong>Easy</strong>.</li>
+            <li>How about a contact form that can send emails to your inbox? <strong>Done</strong>.</li>
+            <li>What about an eCommerce platform for all those products? <strong>Can do</strong>.</li>
+            <li>Or a secure dashboard app that allows you to monitor all your company's data? <strong>Definitely</strong>.</li>
+          </ul>
+          <p>I also build sites using the latest technologies &mdash; from React to PostgreSQL &mdash; making sure your site isn&apos;t just beautiful, but lightning fast and SEO optimised. Whether it is a single web page or a fully-fledged, multilingual website hosting millions of users, the site gets the same care and attention to detail.</p>
+        </div>
+      </div>
+      <div id='brand' className='py-12 flex flex-col items-center justify-center gap-16 min-h-screen w-full bg-gray-300'>
+        <div className='mt-6 lg:mt-12 flex items-center justify-center gap-x-12 max-w-7xl mx-6 md:mx-12 lg:mx-auto'>
+          <div className='flex flex-col lg:flex-row items-center justify-center gap-4'>
+            <div className='w-full lg:w-2/3'>
+              <h1 className='text-6xl md:text-8xl lg:text-9xl font-sans font-black text-gray-950'>Can you make the logo bigger?</h1>
+            </div>
+            <div className='mt-6 w-full lg:w-1/3'>
+              <Image
+                src='/images/yellow.png'
+                alt='A sketch of a website wireframe'
+                height={720}
+                width={680}
+                sizes='(min-width: 720px) 50vw, 100vw'
+                className='shadow-2xl rounded-xl rotate-6'
+              />
+            </div>
+          </div>
+        </div>
+        <div className='max-w-7xl mx-6 md:mx-12 lg:mx-auto prose prose-bpblack xl:prose-2xl font-serif font-normal'>
+          <p>Designing a brand is more than just a cool looking logo (though they do help).</p>
+          <p>Done properly, branding should represent the essence of the company, person, or product. It should help provide a narrative that everyone understands. From gentle, soothing colour palettes to brash, bold, and aggressive shapes; all of these things can reinforce your message.</p>
+          <p>Having spent many years designing brands for charities, international retail companies, and small startups; I have a wealth of experience in the field of brand identity. But not just the brand…</p>
+          <ul>
+            <li><strong>Colour palettes</strong> &mdash; both online and offline, so you don&apos;t lose that important aesthetic moving from screen to paper</li>
+            <li><strong>Brand guidelines</strong> &mdash; so other suppliers know what they can and cannot do with your brand. Allowing for a consistent message wherever you appear</li>
+            <li><strong>Stationery</strong> &mdash; who doesn&apos;t love a well-made and thought through business card or letterhead. Those first impressions can count more than you think.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
   );
 }
