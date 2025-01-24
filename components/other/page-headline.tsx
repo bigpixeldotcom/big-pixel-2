@@ -28,7 +28,7 @@ export default function PageHeadline({ text }: { text: string }) {
       </div>
       <span
         ref={element}
-        className='text-7xl font-special text-bigpix'
+        className='text-7xl font-mono text-bigpix'
       >
       </span>
     </>

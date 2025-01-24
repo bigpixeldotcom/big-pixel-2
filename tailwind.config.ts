@@ -12,9 +12,9 @@ export default {
         bigpix: "rgb(251, 235, 0)"
       },
   		fontFamily: {
-  			sans: ['neueHaasGrotesk'],
-  			serif: ['rockwellNova'],
-        special: ['unibody']
+  			sans: ['neue-haas-grotesk-display'],
+  			serif: ['rockwell-nova'],
+        mono: ['unibody-8-new']
   		},
       typography: ({ theme }: { theme: (path: string) => string }) => ({
         bpblack: {
