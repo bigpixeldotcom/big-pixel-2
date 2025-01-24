@@ -27,17 +27,17 @@ const neueHaasGrotesk = localFont({
     {
       path: './fonts/Neue-Haas-Grotesk-600.woff2',
       weight: '600',
-      style: 'semibold',
+      style: 'normal',
     },
     {
       path: './fonts/Neue-Haas-Grotesk-700.woff2',
       weight: '700',
-      style: 'bold',
+      style: 'normal',
     },
     {
       path: './fonts/Neue-Haas-Grotesk-900.woff2',
       weight: '900',
-      style: 'black',
+      style: 'normal',
     },
   ],
 });
@@ -47,7 +47,7 @@ const rockwellNova = localFont({
     {
       path: './fonts/Rockwell-Nova-200.woff2',
       weight: '200',
-      style: 'light',
+      style: 'normal',
     },
     {
       path: './fonts/Rockwell-Nova-400-Italic.woff2',
@@ -62,17 +62,17 @@ const rockwellNova = localFont({
     {
       path: './fonts/Rockwell-Nova-700-Italic.woff2',
       weight: '700',
-      style: 'bold-italic',
+      style: 'italic',
     },
     {
       path: './fonts/Rockwell-Nova-700.woff2',
       weight: '700',
-      style: 'bold',
+      style: 'normal',
     },
     {
       path: './fonts/Rockwell-Nova-800.woff2',
       weight: '800',
-      style: 'black',
+      style: 'normal',
     },
   ],
 });
@@ -80,7 +80,7 @@ const rockwellNova = localFont({
 const unibody = localFont({
   src: './fonts/Unibody8-900.woff2',
   weight: '900',
-  style: 'black',
+  style: 'normal',
 });
 
 export const metadata: Metadata = {
