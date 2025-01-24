@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import Spline from '@splinetool/react-spline/next';
 import Image from 'next/image';
 import ClickDown from '@/components/other/click-down';
@@ -31,13 +30,13 @@ export default function Home() {
         </div>
         <div className='max-w-7xl mx-6 md:mx-12 lg:mx-auto prose prose-bpblack xl:prose-2xl font-serif font-normal'>
           <p>You have come up with the most amazing idea and you have poured your heart and soul into making it the best it can be. Now it needs a website that can show all that talent and promise to the rest of the world.</p>
-          <p>That's where I come in. At Big Pixel, I don't just want to take another default website and slap a logo on it. Instead, I want to take all that passion and promise that your business contains and show it in every pixel. This attention to detail also means you can dream big&hellip;</p>
+          <p>That&apos;s where I come in. At Big Pixel, I don&apos;t just want to take another default website and slap a logo on it. Instead, I want to take all that passion and promise that your business contains and show it in every pixel. This attention to detail also means you can dream big&hellip;</p>
           <ul>
             <li>Need a secure portal that customers can log into, and check their orders? <strong>No problem</strong>.</li>
             <li>Want a blog that can be updated with new posts and images? <strong>Easy</strong>.</li>
             <li>How about a contact form that can send emails to your inbox? <strong>Done</strong>.</li>
             <li>What about an eCommerce platform for all those products? <strong>Can do</strong>.</li>
-            <li>Or a secure dashboard app that allows you to monitor all your company's data? <strong>Definitely</strong>.</li>
+            <li>Or a secure dashboard app that allows you to monitor all your company&apos;s data? <strong>Definitely</strong>.</li>
           </ul>
           <p>I also build sites using the latest technologies &mdash; from React to PostgreSQL &mdash; making sure your site isn&apos;t just beautiful, but lightning fast and SEO optimised. Whether it is a single web page or a fully-fledged, multilingual website hosting millions of users, the site gets the same care and attention to detail.</p>
         </div>

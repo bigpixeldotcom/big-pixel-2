@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import localFont from 'next/font/local';
 import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import './globals.css';
-import AuthProvider from '@/components/auth/auth-provider';
+import { ClerkProvider } from '@clerk/nextjs';
 import HoveredLinkProvider from '@/lib/contexts/hovered-link';
 import Navbar from '@/components/navbar/navbar';
 import Footer from '@/components/footer/footer';
+
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import './globals.css';
 
 config.autoAddCss = false;
 
@@ -25,17 +27,17 @@ const neueHaasGrotesk = localFont({
     {
       path: './fonts/Neue-Haas-Grotesk-600.woff2',
       weight: '600',
-      style: 'normal',
+      style: 'semibold',
     },
     {
       path: './fonts/Neue-Haas-Grotesk-700.woff2',
       weight: '700',
-      style: 'normal',
+      style: 'bold',
     },
     {
       path: './fonts/Neue-Haas-Grotesk-900.woff2',
       weight: '900',
-      style: 'normal',
+      style: 'black',
     },
   ],
 });
@@ -45,7 +47,7 @@ const rockwellNova = localFont({
     {
       path: './fonts/Rockwell-Nova-200.woff2',
       weight: '200',
-      style: 'normal',
+      style: 'light',
     },
     {
       path: './fonts/Rockwell-Nova-400-Italic.woff2',
@@ -60,17 +62,17 @@ const rockwellNova = localFont({
     {
       path: './fonts/Rockwell-Nova-700-Italic.woff2',
       weight: '700',
-      style: 'italic',
+      style: 'bold-italic',
     },
     {
       path: './fonts/Rockwell-Nova-700.woff2',
       weight: '700',
-      style: 'normal',
+      style: 'bold',
     },
     {
       path: './fonts/Rockwell-Nova-800.woff2',
       weight: '800',
-      style: 'normal',
+      style: 'black',
     },
   ],
 });
@@ -78,7 +80,7 @@ const rockwellNova = localFont({
 const unibody = localFont({
   src: './fonts/Unibody8-900.woff2',
   weight: '900',
-  style: 'normal',
+  style: 'black',
 });
 
 export const metadata: Metadata = {
@@ -92,9 +94,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AuthProvider>
+    <ClerkProvider>
       <html lang='en' style={{ scrollBehavior: 'smooth' }}>
         <head>
+          <Script
+            src='https://cdn-cookieyes.com/client_data/211462d71c077e0dc631e691/script.js'
+            strategy='beforeInteractive'
+            id='cookieyes'
+          />
           <link rel='icon' type='image/png' href='/favicon-96x96.png' sizes='96x96' />
           <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
           <link rel='shortcut icon' href='/favicon.ico' />
@@ -116,6 +123,6 @@ export default function RootLayout({
           </HoveredLinkProvider>
         </body>
       </html>
-    </AuthProvider>
+    </ClerkProvider>
   );
 }

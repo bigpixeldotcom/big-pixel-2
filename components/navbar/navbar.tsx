@@ -3,7 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useStytchUser } from '@stytch/nextjs';
+import {
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs';
 import {
   Dialog,
   DialogPanel
@@ -64,8 +68,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const { setFace, setUrl } = useHoveredLink() as HoverProps;
 
-  const { user, isInitialized } = useStytchUser();
-
   return (
     <header className='sticky top-0 left-0 right-0 w-full z-10 bg-black'>
       <nav
@@ -116,17 +118,16 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        {user
-          ? (
-          pathname === '/dashboard' ? (
-            <div className='hidden lg:flex lg:flex-1 lg:justify-end font-semibold text-bigpix'>
-              Dashboard
+        <SignedIn>
+          {pathname === '/dashboard' ? (
+            <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
+              <UserButton />
             </div>
           ) : (
             <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
               <Link
                 href='/dashboard'
-                className='flex gap-x-2 font-semibold leading-6 text-gray-100 transition-colors duration-300 ease-in-out hover:text-bigpix'
+                className='flex gap-x-2 font-semibold leading-6 text-gray-500 transition-colors duration-300 ease-in-out hover:text-bigpix'
               >
                 Dashboard
                 <span aria-hidden='true'>
@@ -134,19 +135,21 @@ export default function Navbar() {
                 </span>
               </Link>
             </div>
-          )) : (
-            <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
-              <Link
-                href='/login'
-                className='flex gap-x-2 font-semibold leading-6 text-gray-100 transition-colors duration-300 ease-in-out hover:text-bigpix'
-              >
-                Log In
-                <span aria-hidden='true'>
-                  <FontAwesomeIcon icon={faArrowRightToBracket} fixedWidth />
-                </span>
-              </Link>
-            </div>
-        )}
+          )}
+        </SignedIn>
+        <SignedOut>
+          <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
+            <Link
+              href='/sign-in'
+              className='flex gap-x-2 font-semibold leading-6 text-zinc-500 transition-colors duration-300 ease-in-out hover:text-white'
+            >
+              Sign In
+              <span aria-hidden='true'>
+                <FontAwesomeIcon icon={faArrowRightToBracket} fixedWidth />
+              </span>
+            </Link>
+          </div>
+        </SignedOut>
       </nav>
       <Dialog
         open={mobileMenuOpen}
@@ -194,10 +197,9 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
-              {user
-                ? (
-                pathname === '/dashboard' ? (
-                  'Dashboard'
+              <SignedIn>
+                {pathname === '/dashboard' ? (
+                  <UserButton />
                 ) : (
                   <div className='py-6'>
                     <Link
@@ -212,21 +214,23 @@ export default function Navbar() {
                       </div>
                     </Link>
                   </div>
-                )) : (
-                  <div className='py-6'>
-                    <Link
-                      href='/login'
-                      className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-200 hover:bg-black'
-                    >
-                      <div className='flex items-center gap-x-2'>
-                        Log In
-                        <span aria-hidden='true'>
-                          <FontAwesomeIcon icon={faArrowRightToBracket} fixedWidth />
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
-              )}
+                )}
+              </SignedIn>
+              <SignedOut>
+                <div className='py-6'>
+                  <Link
+                    href='/sign-in'
+                    className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-200 hover:bg-black'
+                  >
+                    <div className='flex items-center gap-x-2'>
+                      Sign In
+                      <span aria-hidden='true'>
+                        <FontAwesomeIcon icon={faArrowRightToBracket} fixedWidth />
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+              </SignedOut>
             </div>
           </div>
         </DialogPanel>

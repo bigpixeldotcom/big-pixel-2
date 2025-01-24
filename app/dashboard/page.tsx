@@ -1,50 +1,26 @@
-'use client';
-
-import {
-  useEffect,
-  useCallback
-} from 'react';
-import { useRouter } from 'next/navigation';
-import {
-  useStytch,
-  useStytchUser,
-  useStytchSession
-} from '@stytch/nextjs';
-import Profile from '@/components/profile/profile';
 import PageHeadline from '@/components/other/page-headline';
+import { currentUser } from '@clerk/nextjs/server';
+import { SignOutButton } from '@clerk/nextjs'
+import { DateTime } from 'luxon';
 
-export default function ProfilePage() {
-  
-  const stytch = useStytch();
-  const { user, isInitialized } = useStytchUser();
-  const { session } = useStytchSession();
-  const router = useRouter();
+export default async function ProfilePage() {
 
-  // If the Stytch SDK no longer has a User then redirect to login; for example after logging out.
-  useEffect(() => {
-    if (isInitialized && !user) {
-      router.replace('/');
-    }
-  }, [user, isInitialized, router]);
+  const user = await currentUser();
 
-  const logout = useCallback(() => {
-    stytch.session.revoke();
-  }, [stytch]);
+  function parseDate(date: number | null | undefined) {
+    if (!date) return 'today';
+    return DateTime.fromMillis(date).toLocaleString(DateTime.DATETIME_FULL);
+  }
 
   return (
     <div className='flex flex-col'>
       <div className='mt-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
         <div className='flex flex-col gap-y-6 justify-start'>
-          <PageHeadline text={user?.name.first_name || 'Hello'} />
+          <PageHeadline text={'Hello, ' + user?.firstName || 'Hello'} />
           <p className='font-serif font-light'>
-            You last visited at {session?.last_accessed_at || 'an unknown time'}.
+            You last visited at {parseDate(user?.lastSignInAt)}.
           </p>
-          <button
-            onClick={logout}
-            className='bg-bigpix hover:bg-bigpix/80 text-white font-semibold rounded-md py-2 px-4 shadow-md focus:outline-none focus-visible:ring focus-visible:ring-bigpix focus-visible:ring-opacity-50 transition-colors ease-in-out duration-200'
-          >
-            Log Out
-          </button>
+          <SignOutButton />
         </div>
       </div>
     </div>
