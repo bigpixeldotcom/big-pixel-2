@@ -18,13 +18,13 @@ export default function ClickDown() {
 
   return (
     <div className={clsx(
-      'flex-shrink pb-8 lg:pb-16',
+      'hidden lg:flex flex-shrink',
       visible ? 'opacity-100' : 'opacity-0'
     )}>
       <Link href='#info'>
         <FontAwesomeIcon
           icon={faDown}
-          className='text-6xl text-bigpix animate-bounce'
+          className='text-3xl md:text-6xl text-bigpix animate-bounce'
         />
       </Link>
     </div>

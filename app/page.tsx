@@ -4,12 +4,13 @@ import ClickDown from '@/components/other/click-down';
 
 export default function Home() {
   return (
-    <main className='flex flex-col min-h-screen'>
-      <div className='flex flex-col items-center justify-center h-1/2 md:h:3/4 lg:h-screen max-w-[1800px] mx-auto'>
-
+    <main className='flex flex-col items-center justify-center min-h-screen'>
+      <div className='flex flex-col items-center justify-center h-[360px] lg:h-screen -mt-16'>
+        <div className='mx-auto w-full h-3/4'>
           <Spline
             scene='https://prod.spline.design/uFAYgKO-o3vw3IjY/scene.splinecode'
           />
+        </div>
         <ClickDown />
       </div>
       <div id='info' className='py-12 flex flex-col items-center justify-center gap-16 min-h-screen w-full bg-bigpix'>
