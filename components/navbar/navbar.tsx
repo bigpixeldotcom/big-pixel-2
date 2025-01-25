@@ -72,7 +72,7 @@ export default function Navbar() {
     <header className='sticky top-0 left-0 right-0 w-full z-10 bg-black'>
       <nav
         aria-label='Global'
-        className='max-w-7xl mx-auto flex items-center justify-between'
+        className='px-6 max-w-7xl lg:mx-auto flex items-center justify-between'
       >
         <div className='flex lg:flex-1'>
           <Link href='/' className=''>

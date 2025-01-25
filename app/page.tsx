@@ -4,7 +4,7 @@ import ClickDown from '@/components/other/click-down';
 
 export default function Home() {
   return (
-    <main className='flex flex-col items-center justify-center min-h-screen'>
+    <main className='flex flex-col items-center justify-center min-h-screen overflow-x-hidden'>
       <div className='flex flex-col items-center justify-center h-[360px] lg:h-screen -mt-16'>
         <div className='mx-auto w-full h-3/4'>
           <Spline
@@ -13,7 +13,7 @@ export default function Home() {
         </div>
         <ClickDown />
       </div>
-      <div id='info' className='py-12 flex flex-col items-center justify-center gap-16 min-h-screen w-full bg-bigpix'>
+      <div id='info' className='p-6 md:p-12 flex flex-col items-center justify-center gap-16 min-h-screen w-full bg-bigpix'>
         <div className='mt-6 lg:mt-12 flex items-center justify-center gap-x-12 max-w-7xl mx-6 md:mx-12 lg:mx-auto'>
           <div className='flex flex-col lg:flex-row items-center justify-center gap-4'>
             <div className='w-full lg:w-2/3'>
@@ -42,7 +42,7 @@ export default function Home() {
           <p>I also build sites using the latest technologies &mdash; from React to PostgreSQL &mdash; making sure your site isn&apos;t just beautiful, but lightning fast and SEO optimised. Whether it is a single web page or a fully-fledged, multilingual website hosting millions of users, the site gets the same care and attention to detail.</p>
         </div>
       </div>
-      <div id='brand' className='py-12 flex flex-col items-center justify-center gap-16 min-h-screen w-full bg-gray-300'>
+      <div id='brand' className='p-6 md:p-12 flex flex-col items-center justify-center gap-16 min-h-screen w-full bg-gray-300'>
         <div className='mt-6 lg:mt-12 flex items-center justify-center gap-x-12 max-w-7xl mx-6 md:mx-12 lg:mx-auto'>
           <div className='flex flex-col lg:flex-row items-center justify-center gap-4'>
             <div className='w-full lg:w-2/3'>

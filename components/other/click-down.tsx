@@ -18,7 +18,7 @@ export default function ClickDown() {
 
   return (
     <div className={clsx(
-      'hidden lg:flex flex-shrink',
+      'flex-shrink',
       visible ? 'opacity-100' : 'opacity-0'
     )}>
       <Link href='#info'>
